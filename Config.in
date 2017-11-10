@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_SNOOPY_PATH/package/gonzales/Config.in"

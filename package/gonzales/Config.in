@@ -1,0 +1,7 @@
+config BR2_PACKAGE_GONZALES
+	bool "gonzales"
+	depends BR2_INSTALL_LIBSTDCPP
+	help
+	  This is gonzales, our old motion driver.
+
+	  https://github.com/carpe-noctem-cassel/gonzales_bbb_port
