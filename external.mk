@@ -1,2 +1,2 @@
 # include our packages
-include $(sort $(wildcard $(BR2_EXTERNAL)/package/*/*.mk))_
+include $(sort $(wildcard $(BR2_EXTERNAL)/package/*/*.mk))

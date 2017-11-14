@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if=can0
+test -n "$1" && if="$1"
+
+ip link set $if up type can bitrate 125000
