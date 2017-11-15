@@ -197,5 +197,7 @@
 
 &dcan1 {
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&bb_dcan1_pins>;
 };
 
