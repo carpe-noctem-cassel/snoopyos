@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# Sets can interface up
+#
+
+# Allow a few customizations from a config file
+test -r /usr/bin/canup
+can_iface=can0
+
+start() {
+	umask 077
+
+	printf "Configuring can interface: "
+	ip link set $can_iface up type can bitrate 1000000 triple-sampling on
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+}
+
+stop() {
+	ip set link $can_iface down
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  restart|reload)
+  	restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

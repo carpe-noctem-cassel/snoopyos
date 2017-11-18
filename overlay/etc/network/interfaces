@@ -2,7 +2,6 @@ auto lo
 iface lo inet loopback
 
 auto eth0
-iface eth0 inet static
 
 #lab values
 #address 172.16.40.107
@@ -10,7 +9,10 @@ iface eth0 inet static
 #netmask 255.255.255.0
 
 #robot values
+iface eth0 inet static
 address 10.0.0.10
 gateway 10.0.0.1
 netmask 255.0.0.0
+post-up route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
+
 
