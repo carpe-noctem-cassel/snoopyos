@@ -43,4 +43,15 @@ $ make
 
 ### Uploading to the Beagleboard
 
-Follows...
+After building the project using `make` you should have a file
+called `sdcard.img` laying around in `buildroot/output/images`.
+
+Using dd you can then load the image onto an sdcard for the beagleboard
+to boot from. Replace the X below with the letter of the sdcards
+block device(You can use `lsblk` to find out which one) to flash
+the image onto an sdcard of your choice:
+
+```sh
+$ cd buildroot # cd into your downloaded buildroot installation
+$ sudo dd if=output/images/sdcard.img of=/dev/sdX bs=1M
+```
